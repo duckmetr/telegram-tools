@@ -1,29 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Toaster } from '@/components/ui/sonner'
+import WebhookForm from '@/components/forms/webhook/webhook-form'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
+    <div>
+      <main className="max-w-md m-auto mt-4">
+        <Card>
+          <CardHeader>
+            <CardTitle>Webhook</CardTitle>
+            <CardDescription>set or get info for your bot</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <WebhookForm />
+          </CardContent>
+        </Card>
+      </main>
+      <Toaster theme="light" position="top-center" richColors />
+    </div>
   )
 }
 
