@@ -50,9 +50,13 @@ function WebhookForm() {
 
   async function onSubmit(values: FormValues) {
     const method = methods.find(({ title }) => title === values.method)
-    const endpoint = method.endpoint({ ...values })
 
-    console.log('2')
+    if (!method) {
+      toast.error('Invalid method selected')
+      return
+    }
+
+    const endpoint = method.endpoint({ ...values })
 
     try {
       const res = await fetch(endpoint)
@@ -62,8 +66,8 @@ function WebhookForm() {
       } else {
         toast.warning(JSON.stringify(data, null, 2))
       }
-    } catch (error) {
-      toast.error(error)
+    } catch {
+      toast.error('fetch error')
     }
   }
 
