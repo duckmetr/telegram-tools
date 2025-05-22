@@ -16,7 +16,7 @@ function App() {
           </CardContent>
         </Card>
       </main>
-      <Toaster theme="light" position="top-center" richColors />
+      <Toaster theme="light" position="top-center" duration={12000} richColors />
     </div>
   )
 }
